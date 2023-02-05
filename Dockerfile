@@ -26,7 +26,7 @@ RUN yarn build
 FROM nginx:stable-alpine
 
 # Copy built app to Nginx html
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/.next/server /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /usr/share/nginx/html
