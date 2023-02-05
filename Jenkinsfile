@@ -8,14 +8,14 @@ pipeline {
         stage('Build Image') {
             steps {
                 container('docker') {
-                    sh 'docker build -t localhost:32000/readypaper-site .'
+                    sh 'docker build -t localhost:32000/readypaper-website .'
                 }
             }
         }
         stage('Push Image') {
             steps {
                 container('docker') {
-                     sh 'docker push localhost:32000/readypaper-site'
+                     sh 'docker push localhost:32000/readypaper-website'
                 }
             }
         }

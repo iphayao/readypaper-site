@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: readypaper-site
+  name: readypaper-website
   labels:
-    app: readypaper-site
+    app: readypaper-website
 spec:
   selector:
-    app: readypaper-site
+    app: readypaper-website
   type: ClusterIP
   ports:
     - protocol: TCP
@@ -17,20 +17,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: readypaper-site
+  name: readypaper-website
 spec:
   selector:
     matchLabels:
-      app: readypaper-site
+      app: readypaper-website
   replicas: 1
   template:
     metadata:
       labels:
-        app: readypaper-site
+        app: readypaper-website
     spec:
       containers:
-        - name: readypaper-site
-          image: localhost:32000/readypaper-sitep:latest
+        - name: readypaper-website
+          image: localhost:32000/readypaper-website:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
